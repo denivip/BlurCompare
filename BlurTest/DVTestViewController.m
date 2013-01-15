@@ -126,22 +126,28 @@
     return self;
 }
 
-- (IBAction)sliderChangedValue:(id)sender {
-    self.currentBlurLevel = self.blurSlider.value;
-    
+- (void)setCurrentBlurLevel:(CGFloat)currentBlurLevel
+{
+    _currentBlurLevel = currentBlurLevel;
+
     switch (self.testingFramework) {
         case DVCoreImage:
-            [self.ciBlurFilter setValue:@((NSInteger)self.blurSlider.value)
+            [self.ciBlurFilter setValue:@((NSInteger)_currentBlurLevel)
                                  forKey:@"inputRadius"];
             break;
             
         case DVGPUImage:
-            self.gpuBlurFilter.blurSize = self.blurSlider.value;
+            self.gpuBlurFilter.blurSize = _currentBlurLevel;
             break;
             
         default:
             break;
     }
+}
+
+- (IBAction)sliderChangedValue:(id)sender
+{
+    self.currentBlurLevel = self.blurSlider.value;
 }
 
 #pragma mark - UIViewController
@@ -159,22 +165,24 @@
     }
 
     [self.backingView.layer addSublayer:self.colorSquare];
-    
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timerAction)];
-    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 
     mach_timebase_info(&timebase);
     startTime = mach_absolute_time();
 }
 
--(void)willMoveToParentViewController:(UIViewController *)parent {
-    [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timerAction)];
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidDisappear:animated];
+    
+    [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 - (void)viewDidLayoutSubviews

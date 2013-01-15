@@ -26,15 +26,15 @@
     }
     
     switch (indexPath.row) {
-        case 0:
+        case DVCoreImage:
             cell.textLabel.text = @"Core Image";
             break;
             
-        case 1:
+        case DVAccelerate:
             cell.textLabel.text = @"Accelerate vImage";
             break;
             
-        case 2:
+        case DVGPUImage:
             cell.textLabel.text = @"GPUImage";
             break;
             

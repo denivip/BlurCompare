@@ -119,8 +119,8 @@
 				E37228C716A5B47400B02D5F /* Icon-72.png */,
 				E3D585CB16A5B45D0094D01E /* Icon@2x.png */,
 				E3D585C916A5B4590094D01E /* Icon.png */,
+				743D609716A53FE00083427A /* pic.png */,
 				E3D585B316A5ACFF0094D01E /* Vendor */,
-				743D609916A53FE60083427A /* image */,
 				743D607016A53D060083427A /* BlurTest */,
 				743D606916A53D060083427A /* Frameworks */,
 				743D606716A53D060083427A /* Products */,
@@ -179,14 +179,6 @@
 				743D608016A53D060083427A /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		743D609916A53FE60083427A /* image */ = {
-			isa = PBXGroup;
-			children = (
-				743D609716A53FE00083427A /* pic.png */,
-			);
-			name = image;
 			sourceTree = "<group>";
 		};
 		E3D585B316A5ACFF0094D01E /* Vendor */ = {
