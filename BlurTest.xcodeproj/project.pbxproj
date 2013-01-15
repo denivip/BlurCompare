@@ -16,8 +16,6 @@
 		743D607D16A53D060083427A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D607C16A53D060083427A /* Default.png */; };
 		743D607F16A53D060083427A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D607E16A53D060083427A /* Default@2x.png */; };
 		743D608116A53D060083427A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D608016A53D060083427A /* Default-568h@2x.png */; };
-		743D609016A53E7D0083427A /* DVFrameworkChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D608E16A53E7D0083427A /* DVFrameworkChooseController.m */; };
-		743D609116A53E7D0083427A /* DVFrameworkChooseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743D608F16A53E7D0083427A /* DVFrameworkChooseController.xib */; };
 		743D609516A53FCE0083427A /* DVTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D609316A53FCE0083427A /* DVTestViewController.m */; };
 		743D609616A53FCE0083427A /* DVTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743D609416A53FCE0083427A /* DVTestViewController.xib */; };
 		743D609816A53FE00083427A /* pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D609716A53FE00083427A /* pic.png */; };
@@ -29,6 +27,7 @@
 		743D60B516A552470083427A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B416A552470083427A /* OpenGLES.framework */; };
 		743D60BA16A558140083427A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B916A558140083427A /* CoreImage.framework */; };
 		E3D585C416A5AD880094D01E /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D585BF16A5AD3C0094D01E /* libGPUImage.a */; };
+		E3D585C816A5B37A0094D01E /* DVFrameworkChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D585C716A5B37A0094D01E /* DVFrameworkChooseController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +68,6 @@
 		743D607C16A53D060083427A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		743D607E16A53D060083427A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		743D608016A53D060083427A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		743D608D16A53E7D0083427A /* DVFrameworkChooseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DVFrameworkChooseController.h; path = ../DVFrameworkChooseController.h; sourceTree = "<group>"; };
-		743D608E16A53E7D0083427A /* DVFrameworkChooseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DVFrameworkChooseController.m; path = ../DVFrameworkChooseController.m; sourceTree = "<group>"; };
-		743D608F16A53E7D0083427A /* DVFrameworkChooseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DVFrameworkChooseController.xib; path = ../DVFrameworkChooseController.xib; sourceTree = "<group>"; };
 		743D609216A53FCE0083427A /* DVTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTestViewController.h; sourceTree = "<group>"; };
 		743D609316A53FCE0083427A /* DVTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVTestViewController.m; sourceTree = "<group>"; };
 		743D609416A53FCE0083427A /* DVTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVTestViewController.xib; sourceTree = "<group>"; };
@@ -85,6 +81,8 @@
 		743D60B916A558140083427A /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		E3D585B516A5AD3C0094D01E /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		E3D585C516A5ADCA0094D01E /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImage.h; path = GPUImage/framework/Source/GPUImage.h; sourceTree = "<group>"; };
+		E3D585C616A5B3790094D01E /* DVFrameworkChooseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVFrameworkChooseController.h; sourceTree = "<group>"; };
+		E3D585C716A5B37A0094D01E /* DVFrameworkChooseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVFrameworkChooseController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,12 +148,11 @@
 			children = (
 				743D607916A53D060083427A /* DVAppDelegate.h */,
 				743D607A16A53D060083427A /* DVAppDelegate.m */,
-				743D608D16A53E7D0083427A /* DVFrameworkChooseController.h */,
-				743D608E16A53E7D0083427A /* DVFrameworkChooseController.m */,
+				E3D585C616A5B3790094D01E /* DVFrameworkChooseController.h */,
+				E3D585C716A5B37A0094D01E /* DVFrameworkChooseController.m */,
 				743D609216A53FCE0083427A /* DVTestViewController.h */,
 				743D609316A53FCE0083427A /* DVTestViewController.m */,
 				743D609416A53FCE0083427A /* DVTestViewController.xib */,
-				743D608F16A53E7D0083427A /* DVFrameworkChooseController.xib */,
 				743D607116A53D060083427A /* Supporting Files */,
 			);
 			path = BlurTest;
@@ -281,7 +278,6 @@
 				743D607D16A53D060083427A /* Default.png in Resources */,
 				743D607F16A53D060083427A /* Default@2x.png in Resources */,
 				743D608116A53D060083427A /* Default-568h@2x.png in Resources */,
-				743D609116A53E7D0083427A /* DVFrameworkChooseController.xib in Resources */,
 				743D609616A53FCE0083427A /* DVTestViewController.xib in Resources */,
 				743D609816A53FE00083427A /* pic.png in Resources */,
 			);
@@ -296,8 +292,8 @@
 			files = (
 				743D607716A53D060083427A /* main.m in Sources */,
 				743D607B16A53D060083427A /* DVAppDelegate.m in Sources */,
-				743D609016A53E7D0083427A /* DVFrameworkChooseController.m in Sources */,
 				743D609516A53FCE0083427A /* DVTestViewController.m in Sources */,
+				E3D585C816A5B37A0094D01E /* DVFrameworkChooseController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
