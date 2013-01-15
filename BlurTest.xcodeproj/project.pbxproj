@@ -13,9 +13,6 @@
 		743D607516A53D060083427A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 743D607316A53D060083427A /* InfoPlist.strings */; };
 		743D607716A53D060083427A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D607616A53D060083427A /* main.m */; };
 		743D607B16A53D060083427A /* DVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D607A16A53D060083427A /* DVAppDelegate.m */; };
-		743D607D16A53D060083427A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D607C16A53D060083427A /* Default.png */; };
-		743D607F16A53D060083427A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D607E16A53D060083427A /* Default@2x.png */; };
-		743D608116A53D060083427A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D608016A53D060083427A /* Default-568h@2x.png */; };
 		743D609516A53FCE0083427A /* DVTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D609316A53FCE0083427A /* DVTestViewController.m */; };
 		743D609616A53FCE0083427A /* DVTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743D609416A53FCE0083427A /* DVTestViewController.xib */; };
 		743D609816A53FE00083427A /* pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 743D609716A53FE00083427A /* pic.png */; };
@@ -26,8 +23,12 @@
 		743D60B316A552420083427A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B216A552420083427A /* AVFoundation.framework */; };
 		743D60B516A552470083427A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B416A552470083427A /* OpenGLES.framework */; };
 		743D60BA16A558140083427A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B916A558140083427A /* CoreImage.framework */; };
+		E37228C816A5B47400B02D5F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E37228C716A5B47400B02D5F /* Icon-72.png */; };
+		E37228CA16A5B47700B02D5F /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E37228C916A5B47700B02D5F /* Icon-72@2x.png */; };
 		E3D585C416A5AD880094D01E /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D585BF16A5AD3C0094D01E /* libGPUImage.a */; };
 		E3D585C816A5B37A0094D01E /* DVFrameworkChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D585C716A5B37A0094D01E /* DVFrameworkChooseController.m */; };
+		E3D585CA16A5B4590094D01E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E3D585C916A5B4590094D01E /* Icon.png */; };
+		E3D585CC16A5B45D0094D01E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3D585CB16A5B45D0094D01E /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,10 +80,14 @@
 		743D60B216A552420083427A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		743D60B416A552470083427A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		743D60B916A558140083427A /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		E37228C716A5B47400B02D5F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		E37228C916A5B47700B02D5F /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		E3D585B516A5AD3C0094D01E /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		E3D585C516A5ADCA0094D01E /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImage.h; path = GPUImage/framework/Source/GPUImage.h; sourceTree = "<group>"; };
 		E3D585C616A5B3790094D01E /* DVFrameworkChooseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVFrameworkChooseController.h; sourceTree = "<group>"; };
 		E3D585C716A5B37A0094D01E /* DVFrameworkChooseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVFrameworkChooseController.m; sourceTree = "<group>"; };
+		E3D585C916A5B4590094D01E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		E3D585CB16A5B45D0094D01E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +115,10 @@
 		743D605B16A53D060083427A = {
 			isa = PBXGroup;
 			children = (
+				E37228C916A5B47700B02D5F /* Icon-72@2x.png */,
+				E37228C716A5B47400B02D5F /* Icon-72.png */,
+				E3D585CB16A5B45D0094D01E /* Icon@2x.png */,
+				E3D585C916A5B4590094D01E /* Icon.png */,
 				E3D585B316A5ACFF0094D01E /* Vendor */,
 				743D609916A53FE60083427A /* image */,
 				743D607016A53D060083427A /* BlurTest */,
@@ -275,11 +284,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				743D607516A53D060083427A /* InfoPlist.strings in Resources */,
-				743D607D16A53D060083427A /* Default.png in Resources */,
-				743D607F16A53D060083427A /* Default@2x.png in Resources */,
-				743D608116A53D060083427A /* Default-568h@2x.png in Resources */,
 				743D609616A53FCE0083427A /* DVTestViewController.xib in Resources */,
 				743D609816A53FE00083427A /* pic.png in Resources */,
+				E3D585CA16A5B4590094D01E /* Icon.png in Resources */,
+				E3D585CC16A5B45D0094D01E /* Icon@2x.png in Resources */,
+				E37228C816A5B47400B02D5F /* Icon-72.png in Resources */,
+				E37228CA16A5B47700B02D5F /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
