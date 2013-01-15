@@ -21,6 +21,12 @@
     mach_timebase_info_data_t timebase;
 }
 
+@property (weak, nonatomic) IBOutlet UIView *backingView;
+@property (weak, nonatomic) IBOutlet UIImageView *testPicture;
+@property (weak, nonatomic) IBOutlet UIImageView *outputView;
+@property (weak, nonatomic) IBOutlet UILabel *fpsLabel;
+@property (weak, nonatomic) IBOutlet UISlider *blurSlider;
+
 @property (nonatomic, strong) CALayer *colorSquare;
 @property (nonatomic, strong) CADisplayLink *displayLink;
 @property (nonatomic) DVFrameworks testingFramework;
@@ -34,6 +40,7 @@
 @property (nonatomic, strong) GPUImageFastBlurFilter *gpuBlurFilter;
 @property (nonatomic, strong) GPUImageView *gpuOutputView;
 
+- (IBAction)sliderChangedValue:(id)sender;
 @end
 
 @implementation DVTestViewController
@@ -97,7 +104,7 @@
 
 -(GPUImageView *)gpuOutputView {
     if (!_gpuOutputView) {
-        _gpuOutputView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
+        _gpuOutputView = [[GPUImageView alloc] initWithFrame:CGRectZero];
         _gpuOutputView.backgroundColor = [UIColor clearColor];
     }
     
@@ -130,16 +137,14 @@
     }
 }
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     if (self.testingFramework == DVGPUImage) {
-        self.gpuOutputView.frame = CGRectMake(0.f,
-                                              -22.f,
-                                              self.gpuOutputView.frame.size.width,
-                                              self.gpuOutputView.frame.size.height);
         [self.view insertSubview:self.gpuOutputView belowSubview:self.fpsLabel];
         [self.gpuInputView addTarget:self.gpuBlurFilter];
         [self.gpuBlurFilter addTarget:self.gpuOutputView];
@@ -164,6 +169,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewDidLayoutSubviews
+{
+    CGRect rect = self.view.bounds;
+
+    CGRect sourceViewRect;
+    CGRect outputViewRect;
+    CGRectEdge edge = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)
+                       ? CGRectMinXEdge
+                       : CGRectMinYEdge);
+    CGFloat amount = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)
+                      ? CGRectGetWidth(rect) / 2.f
+                      : CGRectGetHeight(rect) / 2.f);
+    CGRectDivide(rect, &sourceViewRect, &outputViewRect, amount, edge);
+
+    self.backingView.frame = sourceViewRect;
+    self.outputView.frame = outputViewRect;
+    self.gpuOutputView.frame = outputViewRect;
+
+    [super viewDidLayoutSubviews];
+}
+
+#pragma mark -
 
 - (void)timerAction {
     static int xDirection = -4;

@@ -15,13 +15,5 @@ typedef enum {
 } DVFrameworks;
 
 @interface DVTestViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *backingView;
-@property (weak, nonatomic) IBOutlet UIImageView *testPicture;
-@property (weak, nonatomic) IBOutlet UIImageView *outputView;
-@property (weak, nonatomic) IBOutlet UILabel *fpsLabel;
-@property (weak, nonatomic) IBOutlet UISlider *blurSlider;
-
 - (id)initWithFramework:(DVFrameworks)framework;
-- (IBAction)sliderChangedValue:(id)sender;
-
 @end
