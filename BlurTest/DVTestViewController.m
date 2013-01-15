@@ -397,7 +397,6 @@
 
     //clean up
     CGContextRelease(ctx);
-    CGColorSpaceRelease(colorSpace);
 
     free(pixelBuffer);
     free(convertBuffer);
