@@ -47,7 +47,8 @@
 
 @synthesize colorSquare = _colorSquare;
 
--(CALayer *)colorSquare {
+- (CALayer *)colorSquare
+{
     if (!_colorSquare) {
         _colorSquare = [CALayer layer];
         _colorSquare.frame = CGRectMake(0.f, 0.f, 80.f, 80.f);
@@ -55,67 +56,73 @@
         _colorSquare.borderColor = [UIColor whiteColor].CGColor;
         _colorSquare.borderWidth = 2.f;
     }
-    
+
     return _colorSquare;
 }
 
 @synthesize ciContext = _ciContext;
 
--(CIContext *)ciContext {
+- (CIContext *)ciContext
+{
     if (!_ciContext) {
         _ciContext = [CIContext contextWithOptions:nil];
     }
-    
+
     return _ciContext;
 }
 
 @synthesize ciBlurFilter = _ciBlurFilter;
 
--(CIFilter *)ciBlurFilter {
+- (CIFilter *)ciBlurFilter
+{
     if (!_ciBlurFilter) {
         _ciBlurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
     }
-    
+
     return _ciBlurFilter;
 }
 
 @synthesize gpuInputView = _gpuInputView;
 
--(GPUImageUIElement *)gpuInputView {
+- (GPUImageUIElement *)gpuInputView
+{
     if (!_gpuInputView) {
         _gpuInputView = [[GPUImageUIElement alloc] initWithView:self.backingView];
     }
-    
+
     return _gpuInputView;
 }
 
 @synthesize gpuBlurFilter = _gpuBlurFilter;
 
--(GPUImageFastBlurFilter *)gpuBlurFilter {
+- (GPUImageFastBlurFilter *)gpuBlurFilter
+{
     if (!_gpuBlurFilter) {
         _gpuBlurFilter = [[GPUImageFastBlurFilter alloc] init];
         _gpuBlurFilter.blurPasses = 7;
     }
-    
+
     return _gpuBlurFilter;
 }
 
 @synthesize gpuOutputView = _gpuOutputView;
 
--(GPUImageView *)gpuOutputView {
+- (GPUImageView *)gpuOutputView
+{
     if (!_gpuOutputView) {
         _gpuOutputView = [[GPUImageView alloc] initWithFrame:CGRectZero];
         _gpuOutputView.backgroundColor = [UIColor clearColor];
     }
-    
+
     return _gpuOutputView;
 }
 
-- (id)initWithFramework:(DVFrameworks)framework {
+- (id)initWithFramework:(DVFrameworks)framework
+{
     if (self = [super initWithNibName:@"DVTestViewController" bundle:nil]) {
         self.testingFramework = framework;
     }
-    
+
     return self;
 }
 
@@ -143,19 +150,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     if (self.testingFramework == DVGPUImage) {
         [self.view insertSubview:self.gpuOutputView belowSubview:self.fpsLabel];
         [self.gpuInputView addTarget:self.gpuBlurFilter];
         [self.gpuBlurFilter addTarget:self.gpuOutputView];
         [self.outputView removeFromSuperview];
     }
-    
+
     [self.backingView.layer addSublayer:self.colorSquare];
     
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timerAction)];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
+
     mach_timebase_info(&timebase);
     startTime = mach_absolute_time();
 }
@@ -193,78 +200,92 @@
 
 #pragma mark -
 
-- (void)timerAction {
+- (void)timerAction
+{
     static int xDirection = -4;
     static int yDirection = 4;
     static CGFloat xScale = 1.f;
     static CGFloat yScale = 1.f;
     static CGFloat xScaleCounter = .05f;
     static CGFloat yScaleCounter = .02f;
-    
-    self.testPicture.center = CGPointMake(self.testPicture.center.x+xDirection,
-                                          self.testPicture.center.y+yDirection);
-    if (self.testPicture.center.x < 0 || self.testPicture.center.x > self.backingView.bounds.size.width)
+
+    self.testPicture.center = CGPointMake(self.testPicture.center.x + xDirection,
+                                          self.testPicture.center.y + yDirection);
+    if (self.testPicture.center.x < 0 || self.testPicture.center.x > self.backingView.bounds.size.width) {
         xDirection *= -1;
-    if (self.testPicture.center.y < 0 || self.testPicture.center.y > self.backingView.bounds.size.height)
+    }
+    if (self.testPicture.center.y < 0 || self.testPicture.center.y > self.backingView.bounds.size.height) {
         yDirection *= -1;
-    
+    }
+
     xScale += xScaleCounter;
     yScale += yScaleCounter;
     self.testPicture.transform = CGAffineTransformMakeScale(xScale, yScale);
-    if (xScale < 0.5 || xScale > 2.f) xScaleCounter *= -1;
-    if (yScale < 0.5 || yScale > 2.f) yScaleCounter *= -1;
-    
-    
+    if (xScale < 0.5 || xScale > 2.f) {
+        xScaleCounter *= -1;
+    }
+    if (yScale < 0.5 || yScale > 2.f) {
+        yScaleCounter *= -1;
+    }
+
+
     static int xColorSquareDirection = 4;
     static int yColorSquareDirection = -4;
-    
-    self.colorSquare.position = CGPointMake(self.colorSquare.position.x+xColorSquareDirection,
-                                            self.colorSquare.position.y+yColorSquareDirection);
-    if (self.colorSquare.position.x < 0 || self.colorSquare.position.x > self.backingView.bounds.size.width)
+
+    self.colorSquare.position = CGPointMake(self.colorSquare.position.x + xColorSquareDirection,
+                                            self.colorSquare.position.y + yColorSquareDirection);
+    if (self.colorSquare.position.x < 0 || self.colorSquare.position.x > self.backingView.bounds.size.width) {
         xColorSquareDirection *= -1;
-    if (self.colorSquare.position.y < 0 || self.colorSquare.position.y > self.backingView.bounds.size.height)
+    }
+    if (self.colorSquare.position.y < 0 || self.colorSquare.position.y > self.backingView.bounds.size.height) {
         yColorSquareDirection *= -1;
-    
+    }
+
     [self snapshot];
-    
+
     [self updateFPS];
 }
 
--(void)snapshot {
+- (void)snapshot
+{
     UIImage *image;
     switch (self.testingFramework) {
         case DVCoreImage:
             image = [self renderBackingView];
             image = [self ciBlurWithImage:image];
             break;
-            
+
         case DVAccelerate:
             image = [self renderBackingView];
             image = [self accelerateBlurWithImage:image];
             break;
-            
+
         case DVGPUImage:
             [self gpuBlur];
             break;
-            
+
         default:
             break;
     }
-    
-    if (self.testingFramework != DVGPUImage)
+
+    if (self.testingFramework != DVGPUImage) {
         self.outputView.image = image;
+    }
 }
 
-- (UIImage *)renderBackingView {
+- (UIImage *)renderBackingView
+{
     UIView *view = self.backingView;
     CGSize imageSize = view.bounds.size;
-    if (NULL != UIGraphicsBeginImageContextWithOptions)
+    if (NULL != UIGraphicsBeginImageContextWithOptions) {
         UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
-    else
+    }
+    else {
         UIGraphicsBeginImageContext(imageSize);
-    
+    }
+
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
+
     CGContextSaveGState(context);
     CGContextTranslateCTM(context,
                           view.center.x,
@@ -273,34 +294,36 @@
     CGContextTranslateCTM(context,
                           -view.bounds.size.width * view.layer.anchorPoint.x,
                           -view.bounds.size.height * view.layer.anchorPoint.y);
-    
+
     [view.layer.presentationLayer renderInContext:context];
-    
+
     CGContextRestoreGState(context);
-    
+
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
+
     UIGraphicsEndImageContext();
-    
+
     return image;
 }
 
--(void)updateFPS {
+- (void)updateFPS
+{
     endTime = mach_absolute_time();
     elapsedTime = endTime - startTime;
-    nanoTime = elapsedTime*timebase.numer/timebase.denom;
-    self.fpsLabel.text = [NSString stringWithFormat:@"%d", (NSInteger)round(1/((double)nanoTime/1000000000UL))];
-    
+    nanoTime = elapsedTime * timebase.numer / timebase.denom;
+    self.fpsLabel.text = [NSString stringWithFormat:@"%d", (NSInteger)round( 1 / ( (double)nanoTime / 1000000000UL ) )];
+
     startTime = mach_absolute_time();
 }
 
 #pragma mark - Blur block
 
-- (UIImage *)ciBlurWithImage:(UIImage *)image {
+- (UIImage *)ciBlurWithImage:(UIImage *)image
+{
     CIImage *inputImage = [CIImage imageWithCGImage:image.CGImage];
-    [self.ciBlurFilter setValue:@((NSInteger)self.currentBlurLevel) forKey:@"inputRadius"];
+    [self.ciBlurFilter setValue:@ ( (NSInteger)self.currentBlurLevel ) forKey:@"inputRadius"];
     [self.ciBlurFilter setValue:inputImage forKey:kCIInputImageKey];
-    
+
     CIImage *outputCIImage = self.ciBlurFilter.outputImage;
     CGImageRef outputCGImage = [self.ciContext createCGImage:outputCIImage fromRect:outputCIImage.extent];
     UIImage *outputImage = [UIImage imageWithCGImage:outputCGImage];
@@ -308,57 +331,59 @@
     return outputImage;
 }
 
-- (UIImage *)accelerateBlurWithImage:(UIImage *)image {
+- (UIImage *)accelerateBlurWithImage:(UIImage *)image
+{
     NSInteger boxSize = (NSInteger)(self.currentBlurLevel * 5);
     boxSize = boxSize - (boxSize % 2) + 1;
-    
+
     CGImageRef img = image.CGImage;
-    
+
     vImage_Buffer inBuffer, outBuffer, rgbOutBuffer;
     vImage_Error error;
-    
+
     void *pixelBuffer, *convertBuffer;
-    
+
     CGDataProviderRef inProvider = CGImageGetDataProvider(img);
     CFDataRef inBitmapData = CGDataProviderCopyData(inProvider);
-    
-    convertBuffer = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
+
+    convertBuffer = malloc( CGImageGetBytesPerRow(img) * CGImageGetHeight(img) );
     rgbOutBuffer.width = CGImageGetWidth(img);
     rgbOutBuffer.height = CGImageGetHeight(img);
     rgbOutBuffer.rowBytes = CGImageGetBytesPerRow(img);
     rgbOutBuffer.data = convertBuffer;
-    
+
     inBuffer.width = CGImageGetWidth(img);
     inBuffer.height = CGImageGetHeight(img);
     inBuffer.rowBytes = CGImageGetBytesPerRow(img);
-    inBuffer.data = (void*)CFDataGetBytePtr(inBitmapData);
-    
-    pixelBuffer = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
-    
-    if(pixelBuffer == NULL)
+    inBuffer.data = (void *)CFDataGetBytePtr(inBitmapData);
+
+    pixelBuffer = malloc( CGImageGetBytesPerRow(img) * CGImageGetHeight(img) );
+
+    if (pixelBuffer == NULL) {
         NSLog(@"No pixelbuffer");
-    
+    }
+
     outBuffer.data = pixelBuffer;
     outBuffer.width = CGImageGetWidth(img);
     outBuffer.height = CGImageGetHeight(img);
     outBuffer.rowBytes = CGImageGetBytesPerRow(img);
-    
-    void *rgbConvertBuffer = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
+
+    void *rgbConvertBuffer = malloc( CGImageGetBytesPerRow(img) * CGImageGetHeight(img) );
     vImage_Buffer outRGBBuffer;
     outRGBBuffer.width = CGImageGetWidth(img);
     outRGBBuffer.height = CGImageGetHeight(img);
     outRGBBuffer.rowBytes = 3;
     outRGBBuffer.data = rgbConvertBuffer;
-    
+
     error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
-    
+
     if (error) {
         NSLog(@"error from convolution %ld", error);
     }
-    
     const uint8_t mask[] = {2, 1, 0, 3};
+
     vImagePermuteChannels_ARGB8888(&outBuffer, &rgbOutBuffer, mask, kvImageNoFlags);
-    
+
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef ctx = CGBitmapContextCreate(rgbOutBuffer.data,
                                              rgbOutBuffer.width,
@@ -367,25 +392,26 @@
                                              rgbOutBuffer.rowBytes,
                                              colorSpace,
                                              kCGImageAlphaNoneSkipLast);
-    CGImageRef imageRef = CGBitmapContextCreateImage (ctx);
+    CGImageRef imageRef = CGBitmapContextCreateImage(ctx);
     UIImage *returnImage = [UIImage imageWithCGImage:imageRef];
-    
+
     //clean up
     CGContextRelease(ctx);
     CGColorSpaceRelease(colorSpace);
-    
+
     free(pixelBuffer);
     free(convertBuffer);
     free(rgbConvertBuffer);
     CFRelease(inBitmapData);
-    
+
     CGColorSpaceRelease(colorSpace);
     CGImageRelease(imageRef);
-    
+
     return returnImage;
 }
 
-- (void)gpuBlur {
+- (void)gpuBlur
+{
     [self.gpuInputView update];
 }
 
