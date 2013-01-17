@@ -240,8 +240,12 @@
     static int xColorSquareDirection = 4;
     static int yColorSquareDirection = -4;
 
+    [CATransaction begin];
+    [CATransaction setValue:@(0.f)
+                     forKey:kCATransactionAnimationDuration];
     self.colorSquare.position = CGPointMake(self.colorSquare.position.x + xColorSquareDirection,
                                             self.colorSquare.position.y + yColorSquareDirection);
+    [CATransaction commit];
     if (self.colorSquare.position.x < 0 || self.colorSquare.position.x > self.backingView.bounds.size.width) {
         xColorSquareDirection *= -1;
     }
