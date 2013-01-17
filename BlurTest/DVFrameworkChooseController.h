@@ -8,5 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    DVCoreImage             = 0,
+    DVAccelerate            = 1,
+    DVGPUImage              = 2,
+    DVCoreImageSelection    = 3,
+    DVAccelerateSelection   = 4,
+    DVGPUImageSelection     = 5
+    
+} DVFrameworks;
+
 @interface DVFrameworkChooseController : UITableViewController
 @end

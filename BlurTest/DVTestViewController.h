@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum {
-    DVCoreImage     = 0,
-    DVAccelerate    = 1,
-    DVGPUImage      = 2
-} DVFrameworks;
+#import "DVFrameworkChooseController.h"
 
 @interface DVTestViewController : UIViewController
 - (id)initWithFramework:(DVFrameworks)framework;

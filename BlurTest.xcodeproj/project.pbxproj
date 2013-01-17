@@ -23,6 +23,9 @@
 		743D60B316A552420083427A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B216A552420083427A /* AVFoundation.framework */; };
 		743D60B516A552470083427A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B416A552470083427A /* OpenGLES.framework */; };
 		743D60BA16A558140083427A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D60B916A558140083427A /* CoreImage.framework */; };
+		74D247F016A7D6050059019B /* DVSelectiveTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D247EE16A7D6050059019B /* DVSelectiveTestViewController.m */; };
+		74D247F116A7D6050059019B /* DVSelectiveTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D247EF16A7D6050059019B /* DVSelectiveTestViewController.xib */; };
+		74D247FE16A7DCFF0059019B /* apollo.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D247FD16A7DCFF0059019B /* apollo.png */; };
 		E37228C816A5B47400B02D5F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E37228C716A5B47400B02D5F /* Icon-72.png */; };
 		E37228CA16A5B47700B02D5F /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E37228C916A5B47700B02D5F /* Icon-72@2x.png */; };
 		E3D585C416A5AD880094D01E /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D585BF16A5AD3C0094D01E /* libGPUImage.a */; };
@@ -80,6 +83,10 @@
 		743D60B216A552420083427A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		743D60B416A552470083427A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		743D60B916A558140083427A /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		74D247ED16A7D6050059019B /* DVSelectiveTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVSelectiveTestViewController.h; sourceTree = "<group>"; };
+		74D247EE16A7D6050059019B /* DVSelectiveTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVSelectiveTestViewController.m; sourceTree = "<group>"; };
+		74D247EF16A7D6050059019B /* DVSelectiveTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVSelectiveTestViewController.xib; sourceTree = "<group>"; };
+		74D247FD16A7DCFF0059019B /* apollo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apollo.png; sourceTree = "<group>"; };
 		E37228C716A5B47400B02D5F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		E37228C916A5B47700B02D5F /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		E3D585B516A5AD3C0094D01E /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
@@ -115,6 +122,7 @@
 		743D605B16A53D060083427A = {
 			isa = PBXGroup;
 			children = (
+				74D247FD16A7DCFF0059019B /* apollo.png */,
 				E37228C916A5B47700B02D5F /* Icon-72@2x.png */,
 				E37228C716A5B47400B02D5F /* Icon-72.png */,
 				E3D585CB16A5B45D0094D01E /* Icon@2x.png */,
@@ -162,6 +170,9 @@
 				743D609216A53FCE0083427A /* DVTestViewController.h */,
 				743D609316A53FCE0083427A /* DVTestViewController.m */,
 				743D609416A53FCE0083427A /* DVTestViewController.xib */,
+				74D247ED16A7D6050059019B /* DVSelectiveTestViewController.h */,
+				74D247EE16A7D6050059019B /* DVSelectiveTestViewController.m */,
+				74D247EF16A7D6050059019B /* DVSelectiveTestViewController.xib */,
 				743D607116A53D060083427A /* Supporting Files */,
 			);
 			path = BlurTest;
@@ -282,6 +293,8 @@
 				E3D585CC16A5B45D0094D01E /* Icon@2x.png in Resources */,
 				E37228C816A5B47400B02D5F /* Icon-72.png in Resources */,
 				E37228CA16A5B47700B02D5F /* Icon-72@2x.png in Resources */,
+				74D247F116A7D6050059019B /* DVSelectiveTestViewController.xib in Resources */,
+				74D247FE16A7DCFF0059019B /* apollo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +309,7 @@
 				743D607B16A53D060083427A /* DVAppDelegate.m in Sources */,
 				743D609516A53FCE0083427A /* DVTestViewController.m in Sources */,
 				E3D585C816A5B37A0094D01E /* DVFrameworkChooseController.m in Sources */,
+				74D247F016A7D6050059019B /* DVSelectiveTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

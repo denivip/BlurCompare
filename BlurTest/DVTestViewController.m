@@ -263,12 +263,12 @@
     UIImage *image;
     switch (self.testingFramework) {
         case DVCoreImage:
-            image = [self renderBackingView];
+            image = [self renderBackingViewWithRect:CGRectNull];
             image = [self ciBlurWithImage:image];
             break;
 
         case DVAccelerate:
-            image = [self renderBackingView];
+            image = [self renderBackingViewWithRect:CGRectNull];
             image = [self accelerateBlurWithImage:image];
             break;
 
@@ -285,7 +285,7 @@
     }
 }
 
-- (UIImage *)renderBackingView
+- (UIImage *)renderBackingViewWithRect:(CGRect)imageRect
 {
     UIView *view = self.backingView;
     CGSize imageSize = view.bounds.size;
@@ -314,7 +314,7 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 
     UIGraphicsEndImageContext();
-
+    
     return image;
 }
 
