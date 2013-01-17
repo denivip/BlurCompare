@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DVFrameworkChooseController.h"
 
 @interface DVSelectiveTestViewController : UIViewController
+
+-(id)initWithFramework:(DVFrameworks)framework;
 
 @end
