@@ -4,7 +4,6 @@ The BlurCompare project is an iOS app that contains two performance tests. It's 
 http://blog.denivip.ru
 
 ##Frameworks##
------------
 BlurCompare compares performance of:
  - Core Image
  - Accelerate vImage
@@ -14,18 +13,15 @@ Core Image and vImage are Apple's frameworks for processing images. GPUImage is 
 https://github.com/BradLarson/GPUImage
 
 ##Tests##
------------
 BlurCompare contains two tests: blurring moving area of static picture.
 In the first test we compared framework's performance in blurring animated UI element. There is a screen divided into two parts. The first part is the original view that has picture and color square inside it. Picture is moving and changes its size. Color square is just moving. The second part is the view that represents contents of first view with blur effect.
 The second test is showing the case of blurring moving fixed size area of static picture. This test shows us how the selective blur can be implemented. In the app you will see a big picture of Appollo starting off with a small rectangle area and below this area contents of original picture is blurred.
 Both tests can be paused/continued with a single tap and display FPS at the top right corner of screen.
 
 ##Requirements##
------------
 This project requires iOS 6 in order to get Core Image blur filter working. However it will work at iOS 5 either but Core Image won't do anything in that case.
 
 ##TODO##
------------
  - Add iPhone 5 support
  - Fix the issue with borders in the second test
 
