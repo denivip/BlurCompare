@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *testPicture;
 @property (weak, nonatomic) IBOutlet UIImageView *outputView;
 @property (weak, nonatomic) IBOutlet UILabel *fpsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pausedLabel;
 @property (weak, nonatomic) IBOutlet UISlider *blurSlider;
 
 @property (nonatomic, strong) CALayer *colorSquare;
@@ -143,6 +144,9 @@
         default:
             break;
     }
+    
+    if (self.displayLink.paused)
+        [self snapshot];
 }
 
 - (IBAction)sliderChangedValue:(id)sender
@@ -166,6 +170,9 @@
 
     [self.backingView.layer addSublayer:self.colorSquare];
 
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandler:)];
+    [self.view addGestureRecognizer:tapRecognizer];
+    
     mach_timebase_info(&timebase);
     startTime = mach_absolute_time();
 }
@@ -424,6 +431,17 @@
 - (void)gpuBlur
 {
     [self.gpuInputView update];
+}
+
+#pragma mark - User Interactions
+
+- (void)tapHandler:(UITapGestureRecognizer *)tapRecognizer {
+    self.displayLink.paused = !self.displayLink.paused;
+    
+    if (self.displayLink.paused)
+        self.pausedLabel.hidden = NO;
+    else
+        self.pausedLabel.hidden = YES;
 }
 
 @end

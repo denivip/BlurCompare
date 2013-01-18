@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *blurryAreaView;
 @property (weak, nonatomic) IBOutlet UILabel *fpsLabel;
 @property (weak, nonatomic) IBOutlet UISlider *blurSlider;
+@property (weak, nonatomic) IBOutlet UILabel *pausedLabel;
 @property (nonatomic) DVFrameworks testingFramework;
 @property (nonatomic) CGFloat currentBlurLevel;
 @property (nonatomic) CGImageRef originCGImage;
@@ -86,6 +87,9 @@
         default:
             break;
     }
+    
+    if (self.displayLink.paused)
+        [self commitBlurOnArea];
 }
 
 -(CGImageRef)originCGImage {
@@ -121,6 +125,7 @@
     if (self = [super initWithNibName:@"DVSelectiveTestViewController" bundle:nil]) {
         self.testingFramework = framework;
         [self.backingImageView addSubview:self.blurryAreaView];
+        self.currentBlurLevel = 2.f;
     }
     
     return self;
@@ -137,6 +142,9 @@
     
     mach_timebase_info(&timebase);
     startTime = mach_absolute_time();
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandler:)];
+    [self.backingImageView addGestureRecognizer:tapRecognizer];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -158,6 +166,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    self.originCGImage = NULL;
+}
+
 #pragma mark - Timer action
 
 -(void)timerAction {
@@ -176,11 +188,11 @@
         yDirection *= -1;
     }
     
-    [self snapshot];
+    [self commitBlurOnArea];
     [self updateFPS];
 }
 
-- (void)snapshot {
+- (void)commitBlurOnArea {
     UIImage *image;
     switch (self.testingFramework) {
         case DVCoreImageSelection:
@@ -322,6 +334,18 @@
 
 - (UIImage *)gpuImageBlurWithImage:(UIImage *)image {
     return [self.gpuBlurFilter imageByFilteringImage:image];
+}
+
+#pragma mark - User Interactions
+
+- (void)tapHandler:(UITapGestureRecognizer *)tapRecognizer {
+    self.displayLink.paused = !self.displayLink.paused;
+    
+    if (self.displayLink.paused) {
+        self.pausedLabel.hidden = NO;
+    } else {
+        self.pausedLabel.hidden = YES;
+    }
 }
 
 @end

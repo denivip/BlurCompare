@@ -57,7 +57,7 @@
 					</object>
 					<object class="IBUIImageView" id="119311869">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">265</int>
+						<int key="NSvFlags">301</int>
 						<string key="NSFrame">{{264, 438}, {240, 128}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -73,7 +73,7 @@
 						<string key="NSFrame">{{646, 20}, {102, 50}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="119311869"/>
+						<reference key="NSNextKeyView" ref="46080565"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -105,14 +105,45 @@
 						<string key="NSFrame">{{18, 962}, {732, 23}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<float key="IBUIValue">1</float>
+						<float key="IBUIValue">2</float>
 						<float key="IBUIMaxValue">10</float>
+					</object>
+					<object class="IBUILabel" id="46080565">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">-2147483356</int>
+						<string key="NSFrame">{{677, 0}, {71, 21}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="119311869"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<string key="IBUIText">paused</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MSAwLjUgMAA</bytes>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">0</int>
+						<int key="IBUITextAlignment">2</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">1</int>
+							<double key="pointSize">21</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">21</double>
+							<int key="NSfFlags">16</int>
+						</object>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
@@ -176,6 +207,14 @@
 					<int key="connectionID">15</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pausedLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="46080565"/>
+					</object>
+					<int key="connectionID">19</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">blurSliderChangedValue:</string>
 						<reference key="source" ref="689679970"/>
@@ -212,6 +251,7 @@
 							<reference ref="119311869"/>
 							<reference ref="316933970"/>
 							<reference ref="689679970"/>
+							<reference ref="46080565"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -236,6 +276,11 @@
 						<reference key="object" ref="689679970"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">17</int>
+						<reference key="object" ref="46080565"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -245,6 +290,7 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -253,7 +299,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">16</int>
+			<int key="maxID">19</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -276,6 +322,7 @@
 						<string key="blurSlider">UISlider</string>
 						<string key="blurryAreaView">UIImageView</string>
 						<string key="fpsLabel">UILabel</string>
+						<string key="pausedLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="backingImageView">
@@ -292,6 +339,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="fpsLabel">
 							<string key="name">fpsLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="pausedLabel">
+							<string key="name">pausedLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>
