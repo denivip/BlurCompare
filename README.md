@@ -1,7 +1,7 @@
 BlurCompare
 ===========
 The BlurCompare project is an iOS app that contains two performance tests. It's purpose is to compare efficiency of various iOS frameworks in the context of blurring UI elements task. The basics of using frameworks for blurring images are described in the article "Blur effect in iOS applications" at our company's blog:
-http://blog.denivip.ru
+http://blog.denivip.ru/index.php/2013/01/blur-effect-in-ios-applications/?lang=en
 
 ##Frameworks##
 BlurCompare compares performance of:
