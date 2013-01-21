@@ -167,6 +167,8 @@
         [self.gpuBlurFilter addTarget:self.gpuOutputView];
         [self.outputView removeFromSuperview];
     }
+    
+    self.currentBlurLevel = 2.f;
 
     [self.backingView.layer addSublayer:self.colorSquare];
 
