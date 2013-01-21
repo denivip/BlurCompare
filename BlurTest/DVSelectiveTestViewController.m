@@ -175,16 +175,17 @@
 -(void)timerAction {
     static NSInteger xDirection = 4;
     static NSInteger yDirection = 4;
-    static UIView *movingView;
     
-    movingView = self.blurryAreaView;
+    self.blurryAreaView.center = CGPointMake(self.blurryAreaView.center.x + xDirection,
+                                             self.blurryAreaView.center.y + yDirection);
     
-    movingView.center = CGPointMake(movingView.center.x + xDirection,
-                                         movingView.center.y + yDirection);
-    if (movingView.center.x < 0 || movingView.center.x > self.backingImageView.bounds.size.width) {
+    CGFloat rightSide = self.blurryAreaView.frame.origin.x + self.blurryAreaView.frame.size.width;
+    if (self.blurryAreaView.frame.origin.x <= 0 || rightSide >= self.backingImageView.bounds.size.width) {
         xDirection *= -1;
     }
-    if (movingView.center.y < 0 || movingView.center.y > self.backingImageView.bounds.size.height) {
+    
+    CGFloat bottomSide = self.blurryAreaView.frame.origin.y + self.blurryAreaView.frame.size.height;
+    if (self.blurryAreaView.frame.origin.y <= 0 || bottomSide >= self.backingImageView.bounds.size.height) {
         yDirection *= -1;
     }
     
